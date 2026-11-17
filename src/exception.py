@@ -1,5 +1,5 @@
 import sys
-import logging
+from src.logger import logging
 
 def error_message_detail(error, error_detail: sys):
     error_type, error_obj, error_tb = error_detail.exc_info()
@@ -14,12 +14,4 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
-    if __name__ == "__main__":
-        try:
-            a = 1 / 0
-        except Exception as e:
-            logging.info("Logging has started.")
-            logging.warning("This is a warning message.")
-            logging.error("This is an error message.")
-            logging.info("Logging has started.")
-            raise CustomException(e, sys)
+    
